@@ -16,11 +16,12 @@ class Post(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True) 
-    image = (
-        upload_to='images/', default='../default_post_ppes5v'
+    image = models.ImageField(
+        upload_to='images/', default='../default_profile_tl2tw0'
     )
     author = models.ForeignKey(User, on_delete=models.CASCADE, )
-    status = models.CharField(choices=options, default='published')
+    status = models.CharField(choices=options, max_length=10, default='published')
+    postobjects = PostObjects()
 
     class Meta:
         ordering = ['-created_at']
