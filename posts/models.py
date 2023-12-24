@@ -17,9 +17,9 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True) 
     image = models.ImageField(
-        upload_to='images/', default='../default_profile_tl2tw0'
+        upload_to='images/', default='../default_post_ppes5v'
     )
-    author = models.ForeignKey(User, on_delete=models.CASCADE, )
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, )
     status = models.CharField(choices=options, max_length=10, default='published')
     postobjects = PostObjects()
 
